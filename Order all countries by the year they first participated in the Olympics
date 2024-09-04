@@ -1,0 +1,25 @@
+TITLE:-Order all countries by the year they first participated in the Olympics
+LEVEL:-EASY
+COMPANY:-ESPN
+URL:-https://platform.stratascratch.com/coding/10184-order-all-countries-by-the-year-they-first-participated-in-the-olympics?code_type=2
+
+Question:-
+
+Order all countries by the year they first participated in the Olympics.
+
+Output the National Olympics Committee (NOC) name along with the desired year.
+
+Sort records by the year and the NOC in ascending order.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+olympics_athletes_events.head()
+
+grouped = olympics_athletes_events.groupby(['noc'])['year']
+min_year = grouped.min()
+min_year_df = min_year.to_frame('first_time_year')
+min_year_df = min_year_df.reset_index()
+sorted_df = min_year_df.sort_values(['first_time_year', 'noc'])
