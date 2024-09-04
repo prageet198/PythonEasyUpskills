@@ -1,0 +1,24 @@
+TITLE:-Gender With Most Doctor Appointments
+LEVEL:-EASY
+COMPANY:-HealthTap
+URL:-https://platform.stratascratch.com/coding/10170-gender-with-most-doctor-appointments?code_type=2
+
+Question:-
+Find the gender that has made the most number of doctor appointments.
+
+Output the gender along with the corresponding number of appointments.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+medical_appointments.head()
+
+counts = medical_appointments.groupby('gender').size()
+
+counts_df = counts.reset_index(name='total')
+
+sorted_df = counts_df.sort_values(by='total', ascending=False)
+
+result = sorted_df.head(1)
