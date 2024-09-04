@@ -1,0 +1,21 @@
+TITLE:-Total Number Of Housing Units
+LEVEL:-EASY
+COMPANY:-Airnib
+URL:-https://platform.stratascratch.com/coding/10167-total-number-of-housing-units?code_type=2
+
+Question:-
+Find the total number of housing units completed for each year. Output the year along with the total number of housings. 
+Order the result by year in ascending order.
+
+Note: Number of housing units in thousands.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+housing_units_completed_us.head()
+result = housing_units_completed_us.groupby('year')[['south', 'west', 'midwest', 'northeast']].sum()
+result['total'] = result.sum(axis=1)
+result = result.reset_index()
+result = result[['year', 'total']]
