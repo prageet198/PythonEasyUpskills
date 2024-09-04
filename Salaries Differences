@@ -1,0 +1,20 @@
+TITLE:-Salaries Differences
+LEVEL:-EASY
+COMPANY:-LinkedIn
+URL:-https://platform.stratascratch.com/coding/10308-salaries-differences?code_type=2
+
+Question:-
+Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments. 
+Output just the absolute difference in salaries.
+
+Solution:-
+import pandas as pd
+
+df = pd.merge(db_employee, db_dept, how='left', left_on='department_id', right_on='id')
+df_filtered = df[df['department'].isin(['engineering', 'marketing'])]
+max_salaries = df_filtered.groupby('department')['salary'].max()
+salary_eng = max_salaries.get('engineering', 0)
+salary_mkt = max_salaries.get('marketing', 0)
+salary_difference = abs(salary_mkt - salary_eng)
+result = pd.DataFrame({'salary_difference': [salary_difference]})
+result
