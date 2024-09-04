@@ -1,0 +1,15 @@
+TITLE:-Finding Doctors
+LEVEL:-EASY
+COMPANY:-Google
+URL:-https://platform.stratascratch.com/coding/10356-finding-doctors?code_type=2
+
+Question:-
+Find doctors with the last name of 'Johnson' in the employee list. The output should contain both their first and last names.
+
+Solution:-
+import pandas as pd
+
+# Start writing code
+employee_list.head()
+doctors_df = employee_list[(employee_list['last_name'] == 'Johnson') & (employee_list['profession'] == 'Doctor')]
+doctors_df[["first_name", "last_name"]]
