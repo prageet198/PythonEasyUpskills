@@ -1,0 +1,29 @@
+TITLE:-Find the number of 5-star reviews earned by Lo-Lo's Chicken & Waffles
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10057-find-the-number-of-5-star-reviews-earned-by-lo-los-chicken-waffles?code_type=2
+
+Question:-
+Find the number of 5-star reviews earned by Lo-Lo's Chicken & Waffles.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_reviews.head()
+
+# Firstly Create a condition to filter for 5-star reviews
+condition_stars = yelp_reviews['stars'] == '5'
+
+# ThenCreate a Second condition to filter for the specific business name
+condition_business_name = yelp_reviews['business_name'] == "Lo-Lo's Chicken & Waffles"
+
+# Finally Combine both conditions
+combined_condition = condition_stars & condition_business_name
+
+# Apply the Filter on DataFrame using the combined condition
+lolo = yelp_reviews[combined_condition]
+
+# Finally Count the number of rows in the filtered DataFrame
+number_of_reviews = len(lolo)
