@@ -1,0 +1,27 @@
+TITLE:-Find the number of US-based wineries that have expensive wines (price >= 200)
+LEVEL:-EASY
+COMPANY:-Wine Magazine
+URL:-https://platform.stratascratch.com/coding/10027-find-the-number-of-us-based-wineries-that-have-expensive-wines-price-200?code_type=2
+
+Question:-
+Find the number of US-based wineries that have expensive wines.
+A wine is considered to be expensive if its price is $200 or more.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+winemag_p1.head()
+
+# First Of All We Will Filter rows where country is 'US' and price is >= 200
+filtered_df = winemag_p1[(winemag_p1['country'] == 'US') & (winemag_p1['price'] >= 200)]
+
+# After Filter Select only the 'winery' column
+winery_df = filtered_df[['winery']]
+
+# Finally Count the number of unique wineries
+unique_wineries_count = winery_df.nunique()
+
+# Display The Result
+result = unique_wineries_count
