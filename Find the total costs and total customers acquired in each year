@@ -1,0 +1,24 @@
+TITLE:-Find the total costs and total customers acquired in each year
+LEVEL:-EASY
+COMPANY:-Uber
+URL:-https://platform.stratascratch.com/coding/10009-find-the-total-costs-and-total-customers-acquired-in-each-year?code_type=2
+
+Question:-
+Find the total costs and total customers acquired in each year.
+Output the year along with corresponding total money spent and total acquired customers.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+uber_advertising.head()
+
+# Firstly We will Group the data by 'year'
+grouped_data = uber_advertising.groupby(['year'])
+
+# After that we will apply Aggregation by summing up 'money_spent' and 'customers_acquired'
+aggregated_data = grouped_data.agg({'money_spent': 'sum', 'customers_acquired': 'sum'})
+
+# Finally we will Reset the index to turn 'year' back into a regular column
+result = aggregated_data.reset_index()
