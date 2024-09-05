@@ -1,0 +1,30 @@
+TITLE:-Find the average number of stars for each state
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10052-find-the-average-number-of-stars-for-each-state?code_type=2
+
+Question:-
+Find the average number of stars for each state.
+Output the state name along with the corresponding average number of stars.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_business.head()
+
+# First Of All Group the DataFrame by the 'state' column
+grouped_by_state = yelp_business.groupby(['state'])
+
+# After Grouping Select the 'stars' column from the grouped data
+stars_series = grouped_by_state['stars']
+
+# Then Calculate the mean of the 'stars' column for each group (state)
+average_stars = stars_series.mean()
+
+# Now Convert the resulting Series to a DataFrame with the column name 'avg_stars'
+average_stars_df = average_stars.to_frame('avg_stars')
+
+# Finally Reset the index of the DataFrame to make 'state' a column again
+result = average_stars_df.reset_index()
