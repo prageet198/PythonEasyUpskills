@@ -1,0 +1,25 @@
+TITLE:-Find prices for Spanish, Italian, and French wines
+LEVEL:-EASY
+COMPANY:-Wine Magazine
+URL:-https://platform.stratascratch.com/coding/10020-find-prices-for-spanish-italian-and-french-wines?code_type=2
+
+Question:-
+Find prices for Spanish, Italian, and French wines. Output the price.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+winemag_p1.head()
+# Define the filter condition for countries
+countries = ['Spain', 'Italy', 'France']
+
+# Now Check which rows in 'country' column match any of the countries in the list
+is_in_countries = winemag_p1['country'].isin(countries)
+
+# Filter DataFrame based on condition
+filtered_df = winemag_p1[is_in_countries]
+
+# Finally Select only the 'price' column from the filtered DataFrame
+result = filtered_df[['price']]
