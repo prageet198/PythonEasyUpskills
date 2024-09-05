@@ -1,0 +1,32 @@
+TITLE:-Peak Online Time
+LEVEL:-EASY
+COMPANY:-Amazon
+URL:-https://platform.stratascratch.com/coding/10361-peak-online-time?code_type=2
+
+Question:-
+You are given a dataset from Amazon that tracks and aggregates user activity on their platform in certain time periods. 
+For each device type, find the time period with the highest number of active users.
+
+The output should contain 'user_count', 'time_period', and 'device_type', where 'time_period' is a concatenation of 'start_timestamp' and 'end_timestamp', 
+like ; "start_timestamp to end_timestamp".
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+user_activity.head()
+
+user_activity['start_timestamp'] = pd.to_datetime(user_activity['start_timestamp'])
+user_activity['end_timestamp'] = pd.to_datetime(user_activity['end_timestamp'])
+
+user_activity['time_period'] = user_activity['start_timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S') + ' to ' + user_activity['end_timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
+
+# Find the maximum user count for each device type
+max_user_counts = user_activity.groupby('device_type')['user_count'].transform('max')
+
+# Select rows where user_count equals the maximum user count for each device_type
+result = user_activity[user_activity['user_count'] == max_user_counts]
+
+# Select required columns
+result = result[['user_count', 'time_period', 'device_type']]
