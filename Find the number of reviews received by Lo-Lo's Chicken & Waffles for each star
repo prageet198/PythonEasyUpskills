@@ -1,0 +1,32 @@
+TITLE:-Find the number of reviews received by Lo-Lo's Chicken & Waffles for each star
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10058-find-the-number-of-reviews-received-by-lo-los-chicken-waffles-for-each-star?code_type=2
+
+Question:-
+Find the number of reviews received by Lo-Lo's Chicken & Waffles for each star.
+Output the number of stars along with the corresponding number of reviews.
+Sort records by stars in ascending order.
+
+Solution:-
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_reviews.head()
+
+# First Of All Filter the reviews to include only those for "Lo-Lo's Chicken & Waffles"
+lolo = yelp_reviews[yelp_reviews['business_name'] == "Lo-Lo's Chicken & Waffles"]
+
+# Then Group the filtered reviews by the 'stars' column and count the number of reviews for each star rating
+review_counts = lolo.groupby('stars').size()
+
+# After Grouping Convert the Series of review counts into a DataFrame with a column named 'n_reviews'
+review_counts_df = review_counts.to_frame('no_reviews')
+
+# Reset the index so 'stars' becomes a regular column in the DataFrame
+review_counts_df = review_counts_df.reset_index()
+
+# Finally Sort the DataFrame by the 'stars' column in ascending order
+result = review_counts_df.sort_values('stars')
