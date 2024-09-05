@@ -1,0 +1,25 @@
+TITLE:-Find all wine varieties which can be considered cheap based on the price
+LEVEL:-EASY
+COMPANY:-Wine Magazine
+URL:-https://platform.stratascratch.com/coding/10022-find-all-wine-varieties-which-can-be-considered-cheap-based-on-the-price?code_type=2
+
+Question:-
+Find all wine varieties which can be considered cheap based on the price.
+A variety is considered cheap if the price of a bottle lies between 5 to 20 USD.
+Output unique variety names only.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+winemag_p1.head()
+
+# 1. Filter the DataFrame to include only rows where the 'price' is between 5 and 20
+filtered_df = winemag_p1[winemag_p1['price'].between(5, 20)]
+
+# 2. Select only the 'variety' column from the filtered DataFrame
+variety_df = filtered_df[['variety']]
+
+# 3. Drop duplicate values from the 'variety' column
+result = variety_df.drop_duplicates()
