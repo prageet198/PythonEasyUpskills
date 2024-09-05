@@ -1,0 +1,30 @@
+TITLE:-Even-numbered IDs Hired in June
+LEVEL:-EASY
+COMPANY:-Amazon
+URL:-https://platform.stratascratch.com/coding/10137-find-workers-with-an-even-number-for-worker-id?code_type=2
+
+Question:-
+Find employees who started in June and have even-numbered employee IDs.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+import datetime as dt
+
+# Start writing code
+worker.head()
+
+# Convert the 'joining_date' column to datetime format
+worker["joining_date"] = pd.to_datetime(worker["joining_date"])
+
+# Extract the month from the 'joining_date' column
+worker["joining_month"] = worker["joining_date"].dt.month
+
+# Filter rows where the month is June
+feb_df = worker[worker["joining_month"] == 6]
+
+# Further filter to include only rows with odd worker_id
+odd_worker_df = feb_df[feb_df["worker_id"] % 2 == 0]
+
+# Drop the 'joining_month' column
+result = odd_worker_df.drop('joining_month', axis=1)
