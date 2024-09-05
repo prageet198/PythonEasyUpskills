@@ -1,0 +1,31 @@
+TITLE:-Find the average distance traveled in each hour
+LEVEL:-EASY
+COMPANY:-Lyft
+URL:-https://platform.stratascratch.com/coding/10006-find-the-average-distance-traveled-in-each-hour?code_type=2
+
+Question:-
+Find the average distance traveled in each hour.
+Output the hour along with the corresponding average traveled distance.
+Sort records by the hour in ascending order.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+lyft_rides.head()
+
+# Firstly we will create Group by 'hour'
+grouped_data = lyft_rides.groupby(['hour'])
+
+# After that we will Calculate mean travel distance for each hour
+mean_travel_distance = grouped_data['travel_distance'].mean()
+
+#After performing the calculation we will Convert the result to a DataFrame with column name 'avg_distance'
+mean_travel_distance_df = mean_travel_distance.to_frame('avg_distance')
+
+# Now we do the Reset index to turn 'hour' back into a regular column
+mean_travel_distance_df = mean_travel_distance_df.reset_index()
+
+# Finally Sort the DataFrame by 'hour'
+sorted_result = mean_travel_distance_df.sort_values('hour')
