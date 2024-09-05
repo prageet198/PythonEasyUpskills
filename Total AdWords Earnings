@@ -1,0 +1,23 @@
+TITLE:-Total AdWords Earnings
+LEVEL:-EASY
+COMPANY:-Google
+URL:-https://platform.stratascratch.com/coding/10164-total-adwords-earnings?code_type=2
+
+Question:-
+Find the total AdWords earnings for each business type. Output the business types along with the total earnings.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+google_adwords_earnings.head()
+
+# Firstly Group the data by 'business_type'
+grouped_data = google_adwords_earnings.groupby('business_type')
+
+# After that find the Sum of 'adwords_earnings' for each group
+earnings_sum = grouped_data['adwords_earnings'].sum()
+
+# Finally Convert the result back to a DataFrame
+result = earnings_sum.reset_index()
