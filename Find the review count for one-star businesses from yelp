@@ -1,0 +1,30 @@
+TITLE:-Find the review count for one-star businesses from yelp
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10050-find-the-review-count-for-one-star-businesses-from-yelp?code_type=2
+
+Question:-
+Find the review count for one-star businesses from yelp.
+Output the name along with the corresponding review count.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_business.head()
+# First Of All Filter the DataFrame to include only 1-star reviews
+stars = yelp_business[yelp_business['stars'] == 1]
+
+# After That Perform the Group by 'name' and 'review_count' and count the occurrences in each group
+grouped = stars.groupby(['name', 'review_count'])
+counts = grouped.size()
+
+# Now Convert the counts to a DataFrame
+counts_df = counts.to_frame()
+
+# Reset index to get 'name' and 'review_count' as columns
+counts_df_reset = counts_df.reset_index()
+
+# Finally Select only the 'name' and 'review_count' columns
+result = counts_df_reset[['name', 'review_count']]
