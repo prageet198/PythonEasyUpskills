@@ -1,0 +1,18 @@
+TITLE:-Find the number of Yelp businesses that sell pizza
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10153-find-the-number-of-yelp-businesses-that-sell-pizza?code_type=2
+
+Question:-
+Find the number of Yelp businesses that sell pizza.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_business.head()
+
+pizza_businesses = yelp_business[yelp_business['categories'].str.contains('Pizza', case=False)]
+
+number_of_pizza_businesses = len(pizza_businesses)
