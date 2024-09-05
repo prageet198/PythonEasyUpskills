@@ -1,0 +1,26 @@
+TITLE:-Find all Lyft rides which happened on rainy days before noon
+LEVEL:-EASY
+COMPANY:-Lyft
+URL:-https://platform.stratascratch.com/coding/10004-find-all-lyft-rides-which-happened-on-rainy-days-before-noon?code_type=2
+
+Question:-
+Find all Lyft rides which happened on rainy days before noon.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+lyft_rides.head()
+
+# Filter condition to check where the weather is rainy
+weather_condition = lyft_rides['weather'] == 'rainy'
+
+# Filter condition to check where the hour is between 0 and 11 inclusive
+hour_condition = lyft_rides['hour'].between(0, 11)
+
+# Combine both conditions using the & operator
+combined_condition = weather_condition & hour_condition
+
+# Apply the combined condition to the DataFrame
+result = lyft_rides[combined_condition]
