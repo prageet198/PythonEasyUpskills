@@ -1,0 +1,26 @@
+TITLE:-Find players who participated in the Olympics representing more than one team
+LEVEL:-EASY
+COMPANY:-ESPN
+URL:-https://platform.stratascratch.com/coding/10143-find-players-who-participated-in-the-olympics-representing-more-than-one-team?code_type=2
+
+Question:-
+Find players who participated in the Olympics representing more than one team. To detect multiple teams please inspect team column 
+and how are multiple teams structured.
+
+Output the player name, team, games, sport, and the medal.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+olympics_athletes_events.head()
+
+# Filter the DataFrame to include only rows where 'team' contains '/'
+contains_slash = olympics_athletes_events['team'].str.contains('/')
+
+# Apply the filter to get a subset of the DataFrame
+filtered_df = olympics_athletes_events[contains_slash]
+
+# Select specific columns from the filtered DataFrame
+result = filtered_df[['name', 'team', 'games', 'sport', 'medal']]
