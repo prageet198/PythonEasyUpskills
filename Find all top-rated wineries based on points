@@ -1,0 +1,24 @@
+TITLE:-Find all top-rated wineries based on points
+LEVEL:-EASY
+COMPANY:-Wine Magazine
+URL:-https://platform.stratascratch.com/coding/10021-find-all-top-rated-wineries-based-on-points?code_type=2
+
+Question:-
+Find all top-rated wineries based on points.
+Consider a top-rated winery has been awarded points more or equal than 95.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+winemag_p1.head()
+
+# FIrst Of All We Will Filter the DataFrame to get only the rows where 'points' is 95 or more
+filtered_df = winemag_p1[winemag_p1['points'] >= 95]
+
+# Now We will Select only the 'winery' column from the filtered DataFrame
+winery_df = filtered_df[['winery']]
+
+# Remove duplicate winery names to get unique wineries only
+unique_wineries = winery_df.drop_duplicates()
