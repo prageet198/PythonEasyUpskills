@@ -1,0 +1,17 @@
+TITLE:-Records With '?'
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10055-records-with?code_type=2
+
+Question:-
+Find records with the value '?' in the stars column.
+
+Solution:-
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_reviews.head()
+
+output = yelp_reviews[yelp_reviews['stars'] == '?']
