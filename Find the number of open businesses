@@ -1,0 +1,17 @@
+TITLE:-Find the number of open businesses
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10051-find-the-number-of-open-businesses?code_type=2
+
+Question:-
+Find the number of open businesses.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_business.head()
+
+only_open= yelp_business[yelp_business['is_open'] == 1]
+result = len(only_open)
