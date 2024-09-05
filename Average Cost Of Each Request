@@ -1,0 +1,25 @@
+TITLE:-Average Cost Of Each Request
+LEVEL:-EASY
+COMPANY:-Uber
+URL:-https://platform.stratascratch.com/coding/10007-average-cost-of-each-request?code_type=2
+
+Question:-
+Find the average cost of each request status.
+Request status can be either 'success' or 'fail'.
+Output the request status along with the average cost.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+uber_ride_requests.head()
+
+# Initially Group the data by 'request_status'
+grouped_data = uber_ride_requests.groupby('request_status')
+
+# After Grouping Calculate the mean of 'monetary_cost' for each group
+mean_costs = grouped_data['monetary_cost'].mean()
+
+# Finally Convert the result to a DataFrame and reset the index
+result = mean_costs.reset_index()
