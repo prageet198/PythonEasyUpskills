@@ -1,0 +1,31 @@
+TITLE:-Reviews of Hotel Arena
+LEVEL:-EASY
+COMPANY:-Airbnb
+URL:-https://platform.stratascratch.com/coding/10166-reviews-of-hotel-arena?code_type=2
+
+Question:-
+Find the number of rows for each review score earned by 'Hotel Arena'. Output the hotel name (which should be 'Hotel Arena'), 
+review score along with the corresponding number of rows with that score for the specified hotel.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+hotel_reviews.head()
+
+# Firstlt We will Filter reviews for 'Hotel Arena'
+arena_reviews = hotel_reviews[hotel_reviews['hotel_name'] == 'Hotel Arena']
+
+# Next We will Group by 'reviewer_score' and 'hotel_name'
+grouped_reviews = arena_reviews.groupby(['reviewer_score', 'hotel_name'])
+
+# After creating the group Count the number of reviews in each group
+review_counts = grouped_reviews.size()
+
+#Now Convert the  counts to DataFrame & name the count column as 'no_reviews'
+counts_df = review_counts.to_frame('no_reviews')
+
+# Finally Reset the index of the DataFrame
+# Convert the index (which includes 'reviewer_score' and 'hotel_name') to regular columns
+final_result = counts_df.reset_index()
