@@ -1,0 +1,28 @@
+TITLE:-Weekly Orders Report
+LEVEL:-EASY
+COMPANY:-Amazon
+URL:-https://platform.stratascratch.com/coding/10363-weekly-orders-report?code_type=2
+
+Question:-
+For each week, find the total number of orders. Include only the orders that are from the first quarter of 2023.
+
+The output should contain 'week' and 'quantity'.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+orders_analysis.head()
+
+orders_analysis['week'] = pd.to_datetime(orders_analysis['week'])
+
+orders_analysis['quarter'] = orders_analysis['week'].dt.quarter
+orders_analysis['year'] = orders_analysis['week'].dt.year
+
+filtered_data = orders_analysis[
+    (orders_analysis['quarter'] == 1) & (orders_analysis['year'] == 2023)
+]
+
+aggregated_data = filtered_data.groupby('week')['quantity'].sum().reset_index()
+aggregated_data
