@@ -1,0 +1,26 @@
+TITLE:-Wine varieties tasted by 'Roger Voss'
+LEVEL:-EASY
+COMPANY:-Wine Magazine
+URL:-https://platform.stratascratch.com/coding/10024-wine-varieties-tasted-by-roger-voss?code_type=2
+
+Question:-
+Find wine varieties tasted by 'Roger Voss' and with a value in the 'region_1' column of the dataset. Output unique variety names only.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+winemag_p2.head()
+
+# First Of All We will Filter rows where 'region_1' is not null and 'taster_name' is 'Roger Voss'
+filtered_data = winemag_p2[
+    (winemag_p2['region_1'].notnull()) & 
+    (winemag_p2['taster_name'] == 'Roger Voss')
+]
+
+# After that We Will Select the 'variety' column
+variety_data = filtered_data[['variety']]
+
+# Finally Remove duplicate entries
+result = variety_data.drop_duplicates()
