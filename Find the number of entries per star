@@ -1,0 +1,31 @@
+TITLE:-Find the number of entries per star
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10054-find-the-number-of-entries-per-star?code_type=2
+
+Question:-
+Find the number of entries per star.
+Output each number of stars along with the corresponding number of entries.
+Order records by stars in ascending order.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_reviews.head()
+
+# Firstly Group the data by the 'stars' column
+grouped = yelp_reviews.groupby('stars')
+
+# After Grouping Count the number of entries in each group
+entry_counts = grouped.size()
+
+# Now Convert the result to a DataFrame and name the column 'n_entries'
+entry_counts_df = entry_counts.to_frame('no_entries')
+
+# Reset the index to make 'stars' a regular column again
+entry_counts_df = entry_counts_df.reset_index()
+
+# Finally Sort the DataFrame by the 'stars' column
+result = entry_counts_df.sort_values('stars')
