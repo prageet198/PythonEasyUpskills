@@ -1,0 +1,33 @@
+TITLE:-Guest Or Host Kindness
+LEVEL:-EASY
+COMPANY:-Airbnb
+URL:-https://platform.stratascratch.com/coding/10072-guest-or-host-kindness?code_type=2
+
+Question:-
+Find whether hosts or guests give higher review scores based on their average review scores. Output the higher of the average review score rounded to 
+the 2nd decimal spot (e.g., 5.11).
+Solution:-
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+airbnb_reviews.head()
+
+# First Of All Group the DataFrame by 'from_type' and calculate the mean review score for each group
+grouped_data = airbnb_reviews.groupby('from_type')['review_score'].mean()
+
+# After That Convert the Series to a DataFrame
+df = grouped_data.reset_index()
+
+# Rename the column with the mean review scores
+# The column with mean review scores is currently unnamed or named 'review_score'
+# We will rename it to 'avg_score'
+df = df.rename(columns={'review_score': 'avg_score'})
+
+# Round the average review scores to 2 decimal places
+df['avg_score'] = df['avg_score'].round(2)
+
+# Finally Find the row with the highest average review score
+# The nlargest function returns the top n rows with the highest values in the specified column
+result = df.nlargest(1, 'avg_score')
