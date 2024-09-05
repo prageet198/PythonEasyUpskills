@@ -1,0 +1,32 @@
+TITLE:-Number Of Acquisitions
+LEVEL:-EASY
+COMPANY:-Crunchbase
+URL:-https://platform.stratascratch.com/coding/10162-number-of-acquisitions?code_type=2
+
+Question:-
+Find the number of acquisitions that occurred in each quarter of each year. Output the acquired quarter in YYYY-Qq format along with the number of 
+acquisitions and order results by the quarters with the highest number of acquisitions first.
+
+Solution:-
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+crunchbase_acquisitions.head()
+
+# Firstly Extract year and quarter from 'acquired_quarter'
+year = crunchbase_acquisitions['acquired_quarter'].dt.year.astype(str)
+quarter = crunchbase_acquisitions['acquired_quarter'].dt.quarter.astype(str)
+
+# Next Create the 'quarter_year' new column
+crunchbase_acquisitions['quarter_year'] = year + '-Q' + quarter
+
+# After this Group by 'quarter_year' and count entries
+counts = crunchbase_acquisitions.groupby('quarter_year').size()
+
+# Now Convert counts to DataFrame and rename the column to 'size'
+counts_df = counts.to_frame('size')
+
+# Finally Reset index and sort values by 'size'
+result = counts_df.reset_index().sort_values('size', ascending=False)
