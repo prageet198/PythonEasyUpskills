@@ -1,0 +1,26 @@
+TITLE:-Cast stars column values to integer and return with all other column values
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://platform.stratascratch.com/coding/10056-cast-stars-column-values-to-integer-and-return-with-all-other-column-values?code_type=2
+
+Question:-
+Cast stars column values to integer and return with all other column values. Be aware that certain rows contain non integer values.
+
+You need to remove such rows. You are allowed to examine and explore the dataset before making a solution.
+
+Solution:-
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_reviews.head()
+
+# First Of All Filter out rows where the 'stars' column is '?'
+filtered_reviews = yelp_reviews[yelp_reviews['stars'] != '?']
+
+# In the Next Step We will Convert the 'stars' column to integers
+filtered_reviews['stars'] = filtered_reviews['stars'].astype(int)
+
+# Finally Print The result DataFrame now contains only rows with valid integer star ratings
+result = filtered_reviews
