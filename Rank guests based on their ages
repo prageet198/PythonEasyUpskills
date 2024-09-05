@@ -1,0 +1,24 @@
+TITLE:-Rank guests based on their ages
+LEVEL:-EASY
+COMPANY:-Airbnb
+URL:-https://platform.stratascratch.com/coding/10160-rank-guests-based-on-their-ages?code_type=2
+
+Question:-
+Rank guests based on their ages.
+
+Output the guest id along with the corresponding rank.
+
+Order records by the age in descending order.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+airbnb_guests.head()
+
+# Firstly calculate the rank based on age where highest age gets lowest rank
+airbnb_guests['rank'] = airbnb_guests['age'].rank(ascending=False)
+
+# Show the output sorted by rank with columns guest_id & its rank
+output = airbnb_guests[['guest_id', 'rank']].sort_values(by='rank')
