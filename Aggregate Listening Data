@@ -1,0 +1,28 @@
+TITLE:-Aggregate Listening Data
+LEVEL:-EASY
+COMPANY:-Spotify
+URL:-https://platform.stratascratch.com/coding/10367-aggregate-listening-data?code_type=2
+
+Question:-
+You're tasked with analyzing a Spotify-like dataset that captures user listening habits.
+
+For each user, calculate the total listening time and the count of unique songs they've listened to. In the database duration values are displayed in seconds. 
+Round the total listening duration to the nearest whole minute.
+
+The output should contain three columns: 'user_id', 'total_listen_duration', and 'unique_song_count'.
+
+Solution:-
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+listening_habits.head()
+
+grouped_data = listening_habits.groupby('user_id').agg(
+    total_listen_duration=('listen_duration', 'sum'),
+    unique_song_count=('song_id', 'nunique')
+).reset_index()
+
+grouped_data['total_listen_duration'] = (grouped_data['total_listen_duration'] / 60).round()
+
+grouped_data
